@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>investment</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.10.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/use.css' %}">
+</head>
+<body>
+<div class="container" align="center">
+    {% if submitted %}
+       <h2>here is the total amount you receice =</h2><h1> {{t_amount}}</h1>
+       <h2>here is the total amount you invested =</h2> <h1> {{t_investment}}</h1>
+       <h2>here is the total intrest you receive =</h2> <h1> {{t_intrest}}</h1>
+       <h2>here the number of months you invested is =</h2> <h1> {{count}}</h1>
+    {% else %}
+       <h1>here you want to fill the details</h1>
+       <form method="post" action="">
+           {{ obj.as_p }}
+           {% csrf_token %}
+           <input class="btn btn-success" name="" type="submit" value="submit">
+       </form>
+    {% endif %}
+</div>
+</body>
+</html>
